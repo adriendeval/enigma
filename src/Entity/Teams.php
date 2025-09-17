@@ -6,7 +6,8 @@ use App\Repository\TeamRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TeamRepository::class)]
-class Team
+#[ORM\Table(name: 'teams')]
+class Teams
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

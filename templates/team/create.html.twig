@@ -1,3 +1,5 @@
+{# Cette page contient le formulaire de création d'équipe #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Enigma - Créer une équipe
@@ -5,12 +7,20 @@
 
 {% block body %}
 
-	<h1>Créer une équipe</h1>
-
-	{{ form_start(form) }}
-	{{ form_row(form.team_name) }}
-	{{ form_row(form.members_count) }}
-	<button class="btn btn-primary">Créer l'équipe</button>
-	{{ form_end(form) }}
+	<div class="flex items-center justify-center bg-gray-100">
+		<div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
+			<h2 class="text-xl font-semibold mb-4 text-center">Créer une équipe</h2>
+			<p class="mb-6 text-gray-600 text-center">Veuillez entrer le nom de votre équipe et le nombre de membres.</p>
+			{{ form_start(form) }}
+			<div class="mb-4">
+				{{ form_row(form.team_name, {'attr': {'class': 'w-full p-2 border rounded'}}) }}
+			</div>
+			<div class="mb-6">
+				{{ form_row(form.members_count, {'attr': {'class': 'w-full p-2 border rounded'}}) }}
+			</div>
+			<button class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Créer l'équipe</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
 
 {% endblock %}

@@ -1,12 +1,18 @@
+{# Cette page sert de page d'accueil. Elle apparaît quand on ne signifie pas de route spécifique (/) #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Enigma{% endblock %}
 
 {% block body %}
 
-<h1>Bienvenue dans le jeu Enigma!</h1>
-<p>Résolvez les énigmes pour avancer dans le jeu.</p>
+<h1 class="text-2xl font-bold mb-4">Bienvenue dans le jeu Enigma!</h1>
+<p class="mb-4">Résolvez les énigmes pour avancer dans le jeu.</p>
 
-<a href="{{ path('game_start') }}" class="btn btn-primary">Commencer le jeu</a>
+<div class="flex justify-center mt-6">
+    <a href="{{ path('app_team_create') }}" class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+        Commencer
+    </a>
+</div>
 
 {% endblock %}

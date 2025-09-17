@@ -9,15 +9,14 @@ use App\Form\TeamCreateFormType;
 
 final class TeamController extends AbstractController
 {
-    #[Route('/team', name: 'app_team')]
+    #[Route('/teams', name: 'app_team')]
     public function index(): Response
     {
-        return $this->render('team/index.html.twig', [
-            'controller_name' => 'TeamController',
-        ]);
+        return $this->render('team/index.html.twig');
+
     }
 
-    #[Route('/team/create', name: 'app_team_create')]
+    #[Route('/teams/create', name: 'app_team_create')]
     public function create(): Response
     {
 
