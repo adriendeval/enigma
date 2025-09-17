@@ -1,20 +1,46 @@
+{# Cette page affiche la liste de toutes les équipes #}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TeamController!{% endblock %}
+{% block title %}Liste des équipes{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h1 class="text-3xl font-bold text-center text-blue-600 mb-6 mt-10">Liste des équipes</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/adrien/Documents/enigma/src/Controller/TeamController.php</code></li>
-        <li>Your template at <code>C:/Users/adrien/Documents/enigma/templates/team/index.html.twig</code></li>
-    </ul>
-</div>
+<div class="max-w-4xl mx-auto">
+    <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <thead class="bg-blue-600 text-white">
+            <tr>
+                <th class="py-3 px-6 text-left">ID</th>
+                <th class="py-3 px-6 text-left">Nom de l'équipe</th>
+                <th class="py-3 px-6 text-left">Nombre de membres</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team in teams %}
+                <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                    <td class="py-4 px-6 font-medium text-gray-900">{{ team.id }}</td>
+                    <td class="py-4 px-6 text-gray-800 font-semibold">{{ team.name }}</td>
+                    <td class="py-4 px-6 text-gray-600">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                            {{ team.membersCount }} membre(s)
+                        </span>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3" class="text-center py-12 text-gray-500">
+                        <div class="flex flex-col items-center">
+                            <svg class="w-12 h-12 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM9 9a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <p class="text-lg font-medium">Aucune équipe trouvée</p>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}
