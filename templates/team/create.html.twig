@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enigma - Créer une équipe
+{% endblock %}
+
+{% block body %}
+
+	<h1>Créer une équipe</h1>
+
+	{{ form_start(form) }}
+	{{ form_row(form.team_name) }}
+	{{ form_row(form.members_count) }}
+	<button class="btn btn-primary">Créer l'équipe</button>
+	{{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enigma - Créer une partie{% endblock %}
+
+{% block body %}
+
+	<h1>Créer une partie</h1>
+
+	{{ form_start(form) }}
+	{{ form_row(form.team_name) }}
+	{{ form_row(form.members_count) }}
+	<button class="btn btn-primary">Créer une partie</button>
+	{{ form_end(form) }}
+
+{% endblock %}
