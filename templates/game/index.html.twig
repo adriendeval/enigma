@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enigma{% endblock %}
+
+{% block body %}
+
+<h1>Bienvenue dans le jeu Enigma!</h1>
+<p>Résolvez les énigmes pour avancer dans le jeu.</p>
+
+<a href="{{ path('game_start') }}" class="btn btn-primary">Commencer le jeu</a>
+
+{% endblock %}
