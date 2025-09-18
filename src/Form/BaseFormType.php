@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +12,7 @@ class TeamCreateFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('team_name', TextType::class, [
+        $builder->add('name', TextType::class, [
             'label' => 'Nom de l\'équipe',
             'attr' => [
                 'placeholder' => 'Entrez le nom de votre équipe',
@@ -34,8 +33,6 @@ class TeamCreateFormType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            
-        ]);
+        $resolver->setDefaults([]);
     }
 }

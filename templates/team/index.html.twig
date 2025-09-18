@@ -12,7 +12,6 @@
     <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
         <thead class="bg-blue-600 text-white">
             <tr>
-                <th class="py-3 px-6 text-left">ID</th>
                 <th class="py-3 px-6 text-left">Nom de l'équipe</th>
                 <th class="py-3 px-6 text-left">Nombre de membres</th>
             </tr>
@@ -20,7 +19,6 @@
         <tbody>
             {% for team in teams %}
                 <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td class="py-4 px-6 font-medium text-gray-900">{{ team.id }}</td>
                     <td class="py-4 px-6 text-gray-800 font-semibold">{{ team.name }}</td>
                     <td class="py-4 px-6 text-gray-600">
                         <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">

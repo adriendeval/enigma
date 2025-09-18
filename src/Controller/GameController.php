@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use App\Entity\Teams;
+use App\Entity\Team;
 use App\Form\TeamCreateFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ final class GameController extends AbstractController
     {
         $form = $this->createForm(TeamCreateFormType::class);
         
-        return $this->render('game/team.html.twig', [
+        return $this->render('game/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -34,7 +34,7 @@ final class GameController extends AbstractController
     #[Route('/teams', name: 'game_teams')]
     public function teams(EntityManagerInterface $entityManagerInterface): Response
     {
-        $teams = $entityManagerInterface->getRepository(Teams::class)->findAll();
+        $teams = $entityManagerInterface->getRepository(Team::class)->findAll();
 
         return $this->render('team/index.html.twig', [
             'teams' => $teams,

@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\TeamRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TeamRepository::class)]
 #[ORM\Table(name: 'teams')]
-class Teams
+class Team
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,6 +20,14 @@ class Teams
 
     #[ORM\Column(nullable: true)]
     private ?int $membersCount = null;
+
+    #[ORM\Column(type: Types::DATETIMETZ_MUTABLE)]
+    private ?\DateTime $creation_date = null;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -45,6 +54,18 @@ class Teams
     public function setMembersCount(?int $membersCount): static
     {
         $this->membersCount = $membersCount;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTime
+    {
+        return $this->creation_date;
+    }
+
+    public function setCreationDate(\DateTime $creation_date): static
+    {
+        $this->creation_date = $creation_date;
 
         return $this;
     }

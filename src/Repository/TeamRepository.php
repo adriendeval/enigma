@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Teams;
+use App\Entity\Team;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -13,11 +13,11 @@ class TeamRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Teams::class);
+        parent::__construct($registry, Team::class);
     }
 
     //    /**
-    //     * @return Teams[] Returns an array of Teams objects
+    //     * @return Team[] Returns an array of Team objects
     //     */
     //    public function findByExampleField($value): array
     //    {
